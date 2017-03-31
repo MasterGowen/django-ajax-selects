@@ -76,7 +76,7 @@ class AutoCompleteSelectWidget(forms.widgets.TextInput):
             except IndexError:
                 raise Exception("%s cannot find object:%s" % (lookup, value))
             current_repr = lookup.format_item_display(obj)
-            initial = [current_repr, obj.pk]
+            initial = [current_repr, str(obj.pk)]
 
         if self.show_help_text:
             help_text = self.help_text
