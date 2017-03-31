@@ -83,8 +83,6 @@ class AutoCompleteSelectWidget(forms.widgets.TextInput):
         else:
             help_text = ''
 
-        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', value, str(value))
-
         context = {
             'name': name,
             'html_id': self.html_id,
