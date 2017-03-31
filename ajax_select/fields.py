@@ -83,15 +83,12 @@ class AutoCompleteSelectWidget(forms.widgets.TextInput):
         else:
             help_text = ''
 
-        if isinstance(value, UUID):
-            current_id = str(value)
-        else: 
-            current_id = value
+        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!', value, str(value))
 
         context = {
             'name': name,
             'html_id': self.html_id,
-            'current_id': current_id,
+            'current_id': str(value),
             'current_repr': current_repr,
             'help_text': help_text,
             'extra_attrs': mark_safe(flatatt(final_attrs)),
