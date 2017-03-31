@@ -18,6 +18,8 @@ from django.utils.safestring import mark_safe
 from django.utils.six import text_type
 from django.utils.translation import ugettext as _
 
+from uuid import UUID
+
 
 as_default_help = 'Enter text to search.'
 
@@ -81,15 +83,15 @@ class AutoCompleteSelectWidget(forms.widgets.TextInput):
         else:
             help_text = ''
 
-        if "UUID" in str(type(value)):
-            current_id = value.hex
+        if isinstance(value, UUID):
+            current_id = str(value)
         else: 
             current_id = value
 
         context = {
             'name': name,
             'html_id': self.html_id,
-            'current_id': value,
+            'current_id': current_id,
             'current_repr': current_repr,
             'help_text': help_text,
             'extra_attrs': mark_safe(flatatt(final_attrs)),
