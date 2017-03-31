@@ -81,10 +81,10 @@ class AutoCompleteSelectWidget(forms.widgets.TextInput):
         else:
             help_text = ''
 
-        print(value, type(value), '!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-        if "UUID" in str(type(i.id)):
+        if "UUID" in str(type(value)):
             current_id = value.hex
-        else: current_id = value
+        else: 
+            current_id = value
 
         context = {
             'name': name,
